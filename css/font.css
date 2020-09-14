@@ -1,0 +1,403 @@
+@media screen and (min-width: 750px) {   /*大于1200px */
+		     html,body{
+				 width: 100%;
+				 height: 100%;
+			font-size: 100px;
+	     	}
+			 #app{
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			
+		   }
+		   .nav_{
+		   		width: 100%;
+		   		height: 100%;
+				display: flex;
+		   	}
+		   	.nav{
+		   		width: 100%;
+		   		height: 100%;
+		   		display: flex;
+		   		justify-content: space-around;
+		   		align-items: center;
+			   }
+			   .login{
+				   position: fixed;
+				   width: 3.5rem;
+				   margin:.2rem .5rem;
+				   height: .5rem;
+				   /* background: red; */
+				   background: url(/img/ima_logo.png)no-repeat;
+				   background-size: 100%;
+			   }
+		   	.left{
+				   width: 30%;
+				   height:4rem;	   
+				    background: rgba(0,0,0,0.5);
+		   	     	margin-top: -8%;
+			}
+			select {
+				/*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+				border: solid 1px #000;
+
+				/*很关键：将默认的select选择框样式清除*/
+				appearance:none;
+				-moz-appearance:none;
+				-webkit-appearance:none;
+
+				/*在选择框的最右侧中间显示小箭头图片*/
+				background: url("http://ourjs.github.io/static/2015/arrow.png") no-repeat scroll right center transparent;
+
+
+				/*为下拉小箭头留出一点位置，避免被文字覆盖*/
+				/* padding-right: 14px; */
+				}
+			 .fir_1,.fir_2 ,.fir_3{
+				width: 80%;
+				margin-left: 10%;
+				float: left;
+				height: 1rem;
+				margin-top:.3rem;
+				text-shadow: 0 0 0.03rem rgb(250, 252, 249);
+				text-align: left;
+				color:#fff;
+				font-size: .34rem;
+			}
+			.fir_1 p:last-child{
+				text-align: center;
+				width: 100%;
+			}
+			 .fir_1 p:last-child input,.fir_2 p:last-child input{
+				text-align: center;
+				border:none;
+				width: 100%;
+				color:#8E44CD !important;
+				font-size:.26rem;
+				height: .55rem;
+				line-height: .55rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: url(/img/ima_input_bg.png)no-repeat;
+				background-size: 100%;
+			} 
+			  select{
+				text-align: center;
+				border:none;
+				width: 100%;
+				color:#8E44CD !important;
+				font-size:.26rem;
+				height: .55rem;
+				line-height: .55rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: url(/img/ima_input_bg.png)no-repeat;
+				background-size: 100%;
+			} 
+			input::-webkit-input-placeholder{
+					color:#8E44CD !important;
+				}
+		   	.center{
+		   		width: 26%;
+				height: 80%;
+				background: url(/img/ima_middle_bg.png) no-repeat;
+				background-size:100% ;
+		   		display: flex;
+		   		justify-content: center;
+				align-items: center;
+				position: relative;
+			   }
+			   .center div{
+				position: absolute;
+				top: .61rem;
+				margin-left: .01rem;
+				width: 91.5%;
+				height: 4.58rem;
+			   }
+		   	.center div img{
+				   width: 100%;
+				   height: 100%;
+		   	}
+		   	.right{
+				margin-top: 18%;
+		   		width: 28%;
+		   		text-align: center;
+		   	}
+		   .img_{   	/* 头像 */
+		   		border-radius: .2rem;
+		   		width: 1rem;
+		   		height: 1rem;
+		   		margin-bottom: .15rem;
+		   	}
+		   	.right_mo{
+		   		margin-top:.25rem;
+		   		display: flex;
+		   		font-size: .2rem;
+				justify-content: space-around;
+				width: 100%;
+		   	}
+		   	.right_p{
+		   		width: 48%;
+		   		margin: 0 auto;
+		   		height: .55rem;
+		   		line-height: .55rem;
+		   		font-size: .36rem;
+				color: #fff;
+				font-weight: bold;
+	    		margin-top:-.3rem;
+				background: #FF6149;
+		   	}
+		  	.right_mo p{
+		   		display: flex;
+		   		justify-content: center;
+		   		align-items: center;
+				width: 48%;
+		   	}
+		   	.right_mo p img{
+				z-index: 100;
+				transform:rotate(9deg);
+		   		 width: .5rem;
+		   		 height: .5rem;
+		   	}
+		   	.right_mo p span{
+		   		margin-left: .2rem;
+		   		color:#fbac1c;
+		   		width: 63%;
+				height: .45rem;
+				line-height: .45rem;
+				background: url(/img/ima_num.png) no-repeat;
+			   }
+			   .isshow_ {
+				margin-left: .5rem;
+				position: absolute;
+				margin-top: 10%;
+				width: 23.2%;
+				height: 2.5rem;
+				z-index: 10;
+				text-align: center;
+				background: #fff;
+			}
+			.bo_b{
+				width: 100%;
+				overflow-y: auto;
+				height: 2.5rem;
+				background-color: #fff;
+			}
+			.bo_c{
+				width: 100%;
+				overflow-y: auto;
+				height: 2.5rem;
+				background-color: #fff;
+			}
+			.bo_b div {
+				position: absolute;
+				width: .2rem;
+				height: 100%; 
+				margin-top: .13rem;
+				margin-left: 80%;
+				background: url(/img/x.png) no-repeat;
+				background-size: 100%;
+			}
+			.isshow_ ul{
+				padding-top: .1rem;
+				font-size: .26rem;
+				width: 80%;
+				margin: 0 auto;
+				border-bottom:1px solid #ece6e6;
+				padding-bottom:.1rem;
+			}
+			   .isshows_ {
+				margin-left: 3%;
+				position: absolute;
+				margin-top: 26.5%;
+				width: 23.6%;
+				height: 2.5rem;
+				z-index: 10;
+				text-align: center;
+				background: #fff;
+			}
+			.bo_c div {
+				position: absolute;
+				width: .2rem;
+				height: .2rem; 
+				margin-top: .13rem;
+				margin-left: 80%;
+				background: url(/img/x.png) no-repeat;
+				background-size: 100%;
+			}
+			.isshows_ ul{
+				padding-top: .1rem;
+				font-size: .26rem;
+				width: 80%;
+				margin: 0 auto;
+				border-bottom:1px solid #ece6e6;
+				padding-bottom:.1rem;
+			}
+		   	.shenq{
+		   		margin-top:.25rem;
+		   		width: 100%;
+		   		height: .85rem; 
+		   		 line-height: .85rem;
+		   		text-align: center;
+		   		font-size:.38rem ;
+				font-weight: 400;
+				background: url(/img/ima_btn_mfsq.png) no-repeat;
+				background-size: 100%;
+		   		color:#fff;
+				}
+		   	.cla_{
+		   		width: 100%;
+		   		margin-top: .18rem;
+				background: url(/img/ima_btn_blanksss.png) no-repeat;
+				background-size: 100%;
+		   	}
+		   	.bottom{
+					display: flex;
+					margin-top:.1rem;
+		            justify-content: space-around;
+		            align-items: center;
+					font-size: .24rem;
+					width: 70%;
+					margin: 0 auto;
+					height: .6rem;
+					font-weight: 600;
+					line-height: .6rem;
+					margin-bottom: .2rem;
+					color: #fff;
+		   	}
+		   	.bottom_{ 
+				    background:url(/img/ima_input_bg.png) no-repeat ;
+					background-size: 100%;
+					display: flex;
+					justify-content: space-around;
+					align-items: center;
+					height: .55rem;
+					font-size: .26rem;
+					color:#8E44CD;
+					width: 100%;
+			   }
+				.cl_1{
+					background-color: #8D35D0;
+					width: .02rem;
+					height: .25rem;
+					text-align: center;
+					position: absolute;
+				}
+		   	.centre_{
+		   	    background:#fff;
+		   	    width: .03rem;
+		   	    height: .3rem;
+		   	    position: absolute;
+		   	}
+			.centres_{
+			    background:#8E44CD;
+			    width: .01rem;
+			    height: .1rem;
+				position: absolute;
+			}
+				.ss{
+					z-index: 10000;
+					position: fixed;
+					background:#fff;
+					width: 100%;
+					height: 50px;
+					line-height: 50px;
+					font-size: .24rem;
+					color:#000;
+					text-align: center;
+				}
+		   		/* 遮罩层 */
+		   		.mc{
+					z-index: 10000;
+		   			position: fixed;
+		   			width: 100%;
+		   			height: 100%;
+		   			display: flex;
+		   			justify-content: center;
+					   align-items: center;
+					   background: rgba(0,0,0,0.5);
+				   }
+				.p_p{
+					font-size: .18rem;
+					z-index: 10000;
+				}
+		   		.menb{
+		   			width: 38%;
+		   			height: 70%;
+		   			margin: auto;
+					font-size: .28rem;
+					text-shadow: 0 0 0.03rem rgb(250, 252, 249);
+					background: url(/img/ima_frame_bg.png) no-repeat;
+					background-size: 100%;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				   }
+				 .pad_{
+					width: 85%;
+					height: 100%;
+					margin: 0 auto;
+				} 
+		   		.menb_cla{
+		   			width: 94%;
+					height: 94%;
+		   			margin: 0 auto;
+					color: #fff;
+		   		}
+				.fir_p{
+					padding-top: .6rem;
+				}
+		   		.menb_cla input{
+		   			width: 100%;
+		   			height: .45rem;
+		   			border: none;
+					font-size: .2rem;
+					margin-bottom: .15rem;
+					text-align: center;
+					background: url(/img/ima_input_bg.png) no-repeat;
+					background-size: 100%;
+		   		}
+		   		.but{
+		   			margin-top:3% ;
+		   			width: 100%;
+		   			height: .6rem;
+				   }
+				  
+		   		.but p{
+		   			width: 40%;
+					background-color: red;
+		   			height: .6rem;
+		   			line-height: .6rem;
+		   			font-size: .26rem;
+		   			margin: 0 auto;
+					text-align: center;
+					background: url(/img/ima_btn_dlyz.png) no-repeat;
+					background-size:100% ;
+		   		}
+		   		.last_p{
+		   			font-size: .13rem;
+		   		}
+				   .close_{
+					margin-top: -.2rem;
+					position: absolute;
+					width: .7rem;
+					height: .7rem;
+					margin-left: 36%;
+					background: url(/img/ima_btn_close.png) no-repeat;
+					background-size: 100%;
+				   }
+				   .botto_{
+					   /* position: absolute; */
+					font-size: .1rem;
+					color: #2E3774;
+					/* color: red; */
+					width: 100%;
+					height: .2rem;
+					/* background: red; */
+					text-align: center;
+					margin-top:.3rem;
+				}
+		 }
+		

