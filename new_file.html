@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>律师联盟</title>
+		<title>长城一站式解冻平台</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
 		<meta name="format-detection" content="telephone=yes"/>
 		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
@@ -19,13 +19,14 @@
 		}
 		#app{
 			width: 100%;
+			height: 100%;
 		}
 		#bj{
 			width: 100%;
-			height: 22rem;
+			height: 26rem;
 			background: url(img/image_bg_all.jpg) no-repeat;
 			background-size: 100% 100%;
-			margin-bottom: .4rem;
+			margin-bottom: .49rem;
 		}
 		#kf{
 			    position: fixed;
@@ -41,16 +42,20 @@
 		}
 		#pho{
 			position: fixed;
+			background: green;
 			background: url(img/image_btn_call.png)no-repeat;
 			 background-size: 100% 100%;
 			bottom: 0;
 			width: 100%;
-			/* margin-left: 2%; */
-			height: .5rem;
+			
+			height: .6rem!important;
 			text-align: center;
-			line-height: .5rem;
+			line-height: .6rem;
 			color: #AB977B;
 			font-size: .18rem;
+			
+		}
+		#pho p{
 			
 		}
 		a{
@@ -75,38 +80,44 @@
 		::-webkit-scrollbar{display: none;}
 		.actives{
 			margin:5% auto;
-			
-			width: 375px!important;
-			height: 667px!important;
-			overflow:scroll
+			width: 22%!important;
+			height: 700px!important;
+			overflow:scroll;
+			/* overflow: hidden; */
 		}
 		.active{
 			width: 100%;
-			height: 22rem!important;
+			height: 26rem!important;
 			position: relative;
-			margin-bottom: .28rem!important;
+			margin-bottom: .485rem!important;
 		}
 		.activekf{
-			left: 56%!important;
+			/* position: fixed; */
+			float: right;
+			left:58%!important;
+			margin: auto;
 			width: .55rem!important;
 			height: .55rem!important;
 		}
 		.activepoll{
-			   padding-top: 4.45rem!important;
+			   padding-top: 5.3rem!important;
 			 
 			}
 		.activepho{
-			position: fixed;
-			width: 375px!important;
+			/* float: left; */
+			position: fixed!important;
+			width: 22%!important;
+			/* padding-top:-30%; */
 			margin: auto;
-			bottom:170px!important;
-			height: .4rem!important;
-			text-align: center;
-			line-height: .4rem!important;
+			bottom:15%!important;
+			height: .6rem!important;
 			color: #AB977B;
 			font-size: .16rem!important;
 			
 		}
+		/* .clearpos{
+			position: static!important;
+		} */
 	</style>
 	<script type="text/javascript">
 		(function(doc, win) {
@@ -140,14 +151,17 @@
 						   </marquee>
 						</ul>
 						
-					
-				</div> 
-				
-					 <a :href="'tel:' + tel"  style="color:#AB977B;"><div id="pho"  :class="{ activepho: isactivepho,clearpos: isclearpos }"></a>
-				</div>
-				 <div id="kf"   :class="{ activekf: isactivekf }">
+					<div id="kf"   :class="{ activekf: isactivekf }">
 					 <a :href="url" style="color: transparent;">url</a>
 				 </div>
+				</div> 
+					 <a :href="'tel:' + tel">
+						 <div id="pho"  :class="{ activepho: isactivepho,clearpos: isclearpos }">
+							
+						 </div> 
+					</a>
+				
+				
 			 </div>
 		</div>
 	</body>
