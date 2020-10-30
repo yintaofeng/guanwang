@@ -40,9 +40,8 @@
 			    background: url(img/image_kefu.png)no-repeat;
 			    background-size: 100% 100%;
 		}
-		#pho{
+		.pho{
 			position: fixed;
-			background: green;
 			background: url(img/image_btn_call.png)no-repeat;
 			 background-size: 100% 100%;
 			bottom: 0;
@@ -55,9 +54,7 @@
 			font-size: .18rem;
 			
 		}
-		#pho p{
-			
-		}
+		
 		a{
 			text-decoration:none;
 		}
@@ -84,13 +81,19 @@
 			height: 5.67rem!important;
 			overflow:scroll;
 			background: #011d42;
+			position: relative!important;
 		}
 		.active{
 			width: 100%;
 			height: 26rem!important;
 			position: relative;
-			margin-bottom: -.1rem!important;
+			margin-bottom: .49rem!important;
 		}
+		.scroll {
+			   height: 100%;
+			   overflow: scroll;
+			   
+		   }
 		.activekf{
 			float: right;
 			left:58%!important;
@@ -103,17 +106,18 @@
 			 
 			}
 		.activepho{
-			position: fixed!important;
+			position: absolute!important;
 			width: 100%!important;
 			margin: auto;
-			top:67.2%!important;
+			bottom: 0;
+			left: 0;
+			background: url(img/image_btn_call.png)no-repeat;
+			 background-size: 100% 100%;
 			height: .6rem!important;
 			color: #AB977B;
 			font-size: .16rem!important;
 		}
-		.clearpos{
-			position: static!important;
-		}
+		
 	</style>
 	<script type="text/javascript">
 		(function(doc, win) {
@@ -137,6 +141,7 @@
 	<body>
 		<div id="app">
 			<div :class="{ actives: isActives }">
+				 <div :class="{ scroll: isscroll }">
 				<div id="bj"  :class="{ active: isActive }">
 						<ul class="polling"  :class="{ activepoll: isactivepoll }">						
 							<marquee direction=up scrollamount="1" style=" height: 1.5rem;">
@@ -152,12 +157,12 @@
 				     </div>
 				</div> 
 					 <a :href="'tel:' + tel">
-						 <div id="pho"  :class="{ activepho: isactivepho,clearpos: isclearpos }">
+						 <div  :class="{ activepho: isactivepho,clearpos: isclearpos,pho:ispho  }">
 							
 						 </div> 
 					</a>
 				
-				
+				</div>
 			 </div>
 		</div>
 	</body>
@@ -172,6 +177,8 @@
 							 isactivekf:false,
 							 isclearpos:false,
 							 isactivepoll:false,
+							 ispho:false,
+							 isscroll:false,
 							 app_id:"adminApi",
 							 app_key : "adminApi20200915",	 
 							 list:[ ],
@@ -220,6 +227,8 @@
 							   this.isactivepho = false
 							   this.isclearpos = false
 							   this.isactivepoll = false
+							   this.isscroll = false
+							   this.ispho = true
 							 }else{
 								 setTimeout(()=>{
 									 this.isActives = true
@@ -228,6 +237,8 @@
 									 this.isactivepho = true
 									 this.isclearpos = true
 									 this.isactivepoll = true
+									 this.isscroll = true
+									 this.ispho = false
 								  },100) 
 							
 							 }
