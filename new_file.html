@@ -206,9 +206,15 @@
 			width: 30%;
 			text-align: center;
 		}
+		li span:nth-child(2){
+			width: 45%;
+			text-align:left;
+			
+		}
 		li span:last-child{
-			width: 70%;
-			text-align: left;
+			width: 25%;
+			color: RGB(92,197,255);
+			text-align: center;
 		}
 	</style>
 	<script type="text/javascript">
@@ -255,12 +261,12 @@
 					<div v-if="isshow" :class="{con: iscon,cons:iscons  }" @click="lx">
 						<ul>
 							<li  @click.stop="copy">
-							   <span>QQ</span>	<span id="copybtn">{{qq}}</span>
+							   <span>QQ：</span>	<span id="copybtn">{{qq}}</span><span>复制</span>
 							</li>
 							<li  @click.stop="copys">
-							   <span>VX</span>	<span id="copybtns">{{vx}}</span>
+							   <span>VX：</span>	<span id="copybtns">{{vx}}</span><span>复制</span>
 							</li>
-							<li @click="isshow == false">取消</li>
+							<li @click="isshow == false"  style="color: #ff5151;">取消</li>
 						</ul>
 					</div>
 					<div  :class="{clearpos: isclearpos,pho:ispho  }">
