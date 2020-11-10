@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>长城一站式解冻平台</title>
+		<title>KYLINE</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
 		<meta name="format-detection" content="telephone=yes"/>
 		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
@@ -243,9 +243,9 @@
 				<div id="bj"  :class="{ active: isActive }">
 						<ul class="polling"  :class="{ activepoll: isactivepoll }">						
 							<marquee direction=up scrollamount="1" style=" height: 1.5rem;">
-								<li v-for="(item,index) in list" :key="index">
+								<li v-for="(item,index) in list" :key="index" style="border: none;">
 									<!-- <p> {{item.name | ellipsis}}</p><p>{{item.phone | mobileFilter}}</p><p>{{item.time}}</p> -->
-									  <p>{{ item.id}}</p><p>{{item.desc}}</p>
+									<p>{{item.desc}}</p>
 								</li>
 						   </marquee>
 						</ul>
@@ -304,6 +304,7 @@
 							 url:'',
 							 time:"",
 							 token_:"",
+							 b_id:1,
 							 qq:'1793876439532432',
 							 vx:'797980'
 						 }
@@ -317,16 +318,17 @@
 							var s="app_id"+"="+"adminApi"+"&"+"app_time"+"="+ts
 							var token_ = hex_md5(sha1(s)+this.app_key)
 							this.token_ = token_;
-							   axios.defaults.baseURL='http://192.168.3.49:81/api.php/cc/'
+							   axios.defaults.baseURL='https://admin.asddacavr.com/api.php/cc/'
 							axios.post("getBanner",{
 										app_id: this.app_id,
 										app_time:ts,
 										app_key: this.app_key,
 										token:token_,
+										bid:this.b_id,
 							 }).then(res =>{
 								 this.list = res.data.data.data.list;
 							 })
-							 axios.post("getKefu",{
+							 axios.post("getKf1",{
 										app_id: this.app_id,
 										app_time:ts,
 										app_key: this.app_key,
