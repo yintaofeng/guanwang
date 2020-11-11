@@ -7,9 +7,9 @@
 		<meta name="format-detection" content="telephone=yes"/>
 		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
 		<!-- <script src="js/index.js" type="text/javascript" charset="utf-8"></script> -->
-		<!-- <script src="http://cdn.suoluomei.com/common/js2.0/axios/axios.min.js"></script> -->
-		<script src="js/axios/axios.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script src="http://cdn.suoluomei.com/common/js2.0/axios/axios.min.js"></script>-->
 		<script src="js/md5.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/axios/axios.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/sha1.js" type="text/javascript" charset="utf-8"></script>
 		
 	</head>
@@ -48,7 +48,7 @@
 			bottom: 0;
 			width: 100%;
 			
-			height: 1.1rem!important;
+			height: .45rem!important;
 			text-align: center;
 			line-height: .6rem;
 			color: #AB977B;
@@ -59,7 +59,7 @@
 		a{
 			text-decoration:none;
 			width: 100%;
-			height: 20px;
+			height: .6rem;
 		}
 		.polling{
 			font-size: .14rem;
@@ -93,12 +93,20 @@
 			bottom: 5%;
 			left: 0;
 			background: #fff;
-			height: 20%!important;
+			height: 27%!important;
 			line-height: .3rem;
 			display: flex; 
 			flex-direction: column;
 			justify-content: space-evenly;
 			align-items:space-between;
+		}
+		.div_ps{
+			margin-top: -.12rem;
+			background: url(img/image_btn_call.png)no-repeat;
+			 background-size: 100% 100%;
+			color: transparent;
+			height: .6rem;
+			/* padding-left: 1px; */
 		}
 		/* 电脑端样式 */
 		::-webkit-scrollbar{display: none;}
@@ -158,10 +166,12 @@
 			font-size: .16rem!important;
 		}
 		.div_p{
+			margin-top: -.12rem;
 			background: url(img/image_btn_call.png)no-repeat;
 			 background-size: 100% 100%;
 			color: transparent;
 			height: .6rem;
+			padding-left: 1px;
 		}
 		 .con{
 			position: absolute!important;
@@ -181,7 +191,7 @@
 			bottom: 5%;
 			left: 0;
 			background: #fff;
-			height: 20%!important;
+			height: 27%!important;
 			line-height: .3rem;
 			display: flex; 
 			flex-direction: column;
@@ -191,8 +201,12 @@
 		ul li:first-child{
 			border:none;
 		}
-		ul li{
-			padding-top:.03rem;
+		/* ul li:first-child{
+			padding-top: 0;
+		} */
+		.ul_ li{
+			padding-top:.01rem;
+			height: .55rem;
             border-top: 1px solid #f5f5f5;
 		}
 		li span:first-child{
@@ -244,7 +258,7 @@
 						</ul>
 						
 					<div id="kf"   :class="{ activekf: isactivekf }">
-					   <a :href="url" style="color: transparent;">url</a>
+					   <a :href="url" style="color: transparent;display:block;width: .65rem;height: .65rem;">url</a>
 				     </div>
 				</div> 
 					 <!-- <a :href="'tel:' + tel">
@@ -252,21 +266,24 @@
 						 </div> 
 					</a> -->
 					<div v-if="isshow" :class="{con: iscon,cons:iscons  }" @click="lx">
-						<ul>
+						<ul class="ul_">
+							<li :class="{div_p: isp,div_ps:isps  }">
+								<a :href="'tel:' + tel"  style="color:#AB977B;width: 100%;">
+									<p style="width: 100%;text-align: center;"></p>
+								</a>
+							</li>
 							<li  @click.stop="copy">
-							   <span>QQ：</span>	<span id="copybtn">{{qq}}</span><span>复制</span>
+							   <span>whatsapp：</span>	<span id="copybtn">{{qq}}</span><span>复制</span>
 							</li>
 							<li  @click.stop="copys">
-							   <span>VX：</span>	<span id="copybtns">{{vx}}</span><span>复制</span>
+							   <span>telegram：</span>	<span id="copybtns">{{vx}}</span><span>复制</span>
 							</li>
 							<li @click="isshow == false"  style="color: #ff5151;">取消</li>
 						</ul>
 						<div class="span_" style="font-size: .1rem;color: #fff;background-color: rgba(0,0,0,.8);width:30%;margin:auto;height: 35px;display: flex;justify-content: center; align-items: center;margin-top: 70%;border-radius: 8px;" v-if="show">已复制</div>
 					</div>
 					<div  :class="{clearpos: isclearpos,pho:ispho  }">
-						<a :href="'tel:' + tel"  style="color:#AB977B;">
-							<p class="div_p" style="width: 100%;">立即拨打电话</p>
-						</a>
+						
 						<p @click="lx" style="font-size: .18rem;color:#fff; height: .5rem;background:#011D42;display: flex;
 						justify-content: center;
 						align-items: center;">联系方式</p>
@@ -280,9 +297,11 @@
 			         el: '#app',
 			         data: function () {
 			             return { 
-							 show:false,
+							show:false,
 							isshow:false,
 							iscon:false,
+							isp:false,
+							isps:false,
 							iscons:false,
 							 isActive:false,
 							 isActives:false,
@@ -297,12 +316,11 @@
 							 list:[ ],
 							 tel:"",
 							 url:'',
-							 timer:"",
+							 time:"",
 							 token_:"",
-							 timer:null,
 							 b_id:1,
-							 qq:'1793876439532432',
-							 vx:'797980'
+							 qq:'',
+							 vx:''
 						 }
 			         },
 					 created() {
@@ -333,15 +351,16 @@
 								  this.tel = res.data.data.data.list.tel;
 								 this.url = res.data.data.data.list.kefu_url;
 							 });
-							//  axios.post("getKefu",{          //联系方式弹出框
-							// 			app_id: this.app_id,
-							// 			app_time:ts,
-							// 			app_key: this.app_key,
-							// 			token:token_,
-							//  }).then(res =>{
-							// 	  this.qq = res.data.data.data.list.qq;
-							// 	 this.vx = res.data.data.data.list.vx;
-							//  });
+							 axios.post("getline",{          //联系方式弹出框
+										app_id: this.app_id,
+										app_time:ts,
+										app_key: this.app_key,
+										token:token_,
+										type:1
+							 }).then(res =>{
+								   this.qq = res.data.data.data.list.whatsapp;
+								  this.vx = res.data.data.data.list.telgram;
+							 });
 							 	this.wid()
 			             },
 					 methods:{
@@ -352,24 +371,21 @@
 							var val = document.getElementById('copybtn');
 							window.getSelection().selectAllChildren(val);
 							document.execCommand("Copy");
-							// vant.Toast("已复制");	
 							var a =2;
 							this.show = true;
 							 this.timer = setInterval(() =>{
-							                 //创建定时器
-							                if( a <= 1){
-												clearInterval(this.timer)   //关闭定时器
-												this.show = false;
-							                }
-											
-											a--;
-							            },1000);
+								//创建定时器
+							if( a <= 1){
+								clearInterval(this.timer)   //关闭定时器
+								this.show = false;
+							}
+							a--;
+						},1000);	
 						 },
 						 copys() {  
 							var val = document.getElementById('copybtns');
 							window.getSelection().selectAllChildren(val);
 							document.execCommand("Copy");
-							// vant.Toast("已复制");
 							var a =2;
 							this.show = true;
 							 this.timer = setInterval(() =>{
@@ -393,6 +409,7 @@
 							   this.isactivepoll = false
 							   this.isscroll = false
 							   this.ispho = true
+							   this.isps= true
 							   this.iscons = true
 							 }else{
 								 setTimeout(()=>{
@@ -405,6 +422,7 @@
 									 this.isscroll = true
 									 this.ispho = false
 									 this.iscon = true
+									 this.isp = true
 								  },100) 
 							
 							 }
