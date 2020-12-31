@@ -2,16 +2,15 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>KYLINE</title>
+		<title>律师联盟</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
 		<meta name="format-detection" content="telephone=yes"/>
 		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
 		<!-- <script src="js/index.js" type="text/javascript" charset="utf-8"></script> -->
-		<!--<script src="http://cdn.suoluomei.com/common/js2.0/axios/axios.min.js"></script>-->
-		<script src="js/md5.js" type="text/javascript" charset="utf-8"></script>
+		<!-- <script src="http://cdn.suoluomei.com/common/js2.0/axios/axios.min.js"></script> -->
 		<script src="js/axios/axios.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/md5.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/sha1.js" type="text/javascript" charset="utf-8"></script>
-		
 	</head>
 	<style type="text/css">
 		*{
@@ -24,56 +23,33 @@
 		}
 		#bj{
 			width: 100%;
-			height: 26rem;
-			background: url(img/image_bg_all.jpg) no-repeat;
+			height: 44.6rem;
+			background: url(img/image_bg.jpg) no-repeat;
 			background-size: 100% 100%;
-			margin-bottom: .49rem;
+			margin-bottom: .5rem;
 		}
 		#kf{
 			    position: fixed;
 			    top: 55%;
 			    left: 83%;
-			    width: .65rem;
-			    height: .65rem;
+			    width: .55rem;
+			    height: .55rem;
 			    background-color: black;
 			    z-index: 1001;
 			    filter: alpha(opacity=88);
-			    background: url(img/image_kefu.png)no-repeat;
+			    background: url(img/image_kf.png)no-repeat;
 			    background-size: 100% 100%;
 		}
 		.pho{
 			position: fixed;
-			background: url(img/image_btn_call.png)no-repeat;
-			 background-size: 100% 100%;
 			bottom: 0;
 			width: 100%;
-			
-			height: .45rem!important;
+			height: 1rem;
 			text-align: center;
-			line-height: .6rem;
+			line-height: .5rem;
 			color: #AB977B;
 			font-size: .18rem;
-			
-		}
-		
-		a{
-			text-decoration:none;
-			width: 100%;
-			height: .6rem;
-		}
-		.polling{
-			font-size: .14rem;
-			padding-top: 5.3rem;
-			/* height: 4rem; */
-			color: #fff;
-		}
-		li{
-			line-height: 0.3rem;
-			height: 0.3rem;
-			width: 100%;
-			display: flex;
-			justify-content: space-evenly;
-			align-items: center;
+			background-color:#262D34 ;
 		}
 		.cons{
 			position: fixed!important;
@@ -93,21 +69,30 @@
 			bottom: 5%;
 			left: 0;
 			background: #fff;
-			height: 27%!important;
+			height: 20%!important;
 			line-height: .3rem;
 			display: flex; 
 			flex-direction: column;
 			justify-content: space-evenly;
 			align-items:space-between;
 		}
-		.div_ps{
-			margin-top: -.12rem;
-			background: url(img/image_btn_call.png)no-repeat;
-			 background-size: 100% 100%;
-			color: transparent;
-			height: .6rem;
-			/* padding-left: 1px; */
+		a{
+			text-decoration:none;
 		}
+		.polling{
+			font-size: .14rem;
+			padding-top: 7.1rem;
+			height: 3rem;
+		}
+		li{
+			line-height: 0.3rem;
+			height: 0.3rem;
+			width: 100%;
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+		}
+		
 		/* 电脑端样式 */
 		::-webkit-scrollbar{display: none;}
 		.outContainer { -ms-overflow-style: none; }
@@ -116,62 +101,38 @@
 			width: 22%!important;
 			height: 5.67rem!important;
 			overflow:scroll;
-			background: #011d42;
 			position: relative!important;
 		}
 		.active{
 			width: 100%;
-			height: 26rem!important;
-			position: relative;
-			margin-bottom: .49rem!important;
+			height: 40.6rem!important;
+			margin-bottom: .4rem!important;
 		}
-		.scroll {
-			   height: 100%;
-			   overflow: scroll;
-			   
-		   }
 		.activekf{
-			float: right;
-			left:58%!important;
-			margin: auto;
-			width: .55rem!important;
-			height: .55rem!important;
+			left: 58%!important;
+			width: .45rem!important;
+			height: .45rem!important;
 		}
 		.activepoll{
-			   padding-top: 5.3rem!important;
-			 
+			   padding-top: 6.43rem!important;
+			   height: 2.8rem!important;
 			}
-	    .clearpos{
-			position: absolute!important;
-			width: 100%!important;
-			margin: auto;
-			bottom: 0;
-			left: 0;
-			text-align: center;
-			line-height: .5rem!important;
-			color: #AB977B;
-			font-size: .16rem!important;
-			/* background-color: #262D34; */
-		}
+			.scroll {
+			       height: 100%;
+			       overflow: scroll;
+			       
+			   }
 		.activepho{
 			position: absolute!important;
 			width: 100%!important;
 			margin: auto;
 			bottom: 0;
 			left: 0;
-			background: url(img/image_btn_call.png)no-repeat;
-			 background-size: 100% 100%;
-			height: .6rem!important;
+			text-align: center;
+			line-height: .4rem!important;
 			color: #AB977B;
-			font-size: .16rem!important;
-		}
-		.div_p{
-			margin-top: -.12rem;
-			background: url(img/image_btn_call.png)no-repeat;
-			 background-size: 100% 100%;
-			color: transparent;
-			height: .6rem;
-			padding-left: 1px;
+			font-size: .15rem!important;
+			background-color:#262D34 ;
 		}
 		 .con{
 			position: absolute!important;
@@ -191,7 +152,7 @@
 			bottom: 5%;
 			left: 0;
 			background: #fff;
-			height: 27%!important;
+			height: 20%!important;
 			line-height: .3rem;
 			display: flex; 
 			flex-direction: column;
@@ -201,12 +162,8 @@
 		ul li:first-child{
 			border:none;
 		}
-		/* ul li:first-child{
-			padding-top: 0;
-		} */
-		.ul_ li{
-			padding-top:.01rem;
-			height: .55rem;
+		ul li{
+			padding-top:.03rem;
             border-top: 1px solid #f5f5f5;
 		}
 		li span:first-child{
@@ -223,7 +180,11 @@
 			color: RGB(92,197,255);
 			text-align: center;
 		}
+		/* .clearpos{
+			position: static!important;
+		} */
 	</style>
+	
 	<script type="text/javascript">
 		(function(doc, win) {
 		var docEl = doc.documentElement,
@@ -245,72 +206,60 @@
 	</script>
 	<body>
 		<div id="app">
+			
 			<div :class="{ actives: isActives }">
 				 <div :class="{ scroll: isscroll }">
-				<div id="bj"  :class="{ active: isActive }">
-						<ul class="polling"  :class="{ activepoll: isactivepoll }">						
-							<marquee direction=up scrollamount="1" style=" height: 1.5rem;">
+					<div id="bj" :class="{ active: isActive }">
+						<ul class="polling" :class="{ activepoll: isactivepoll }">
+							<marquee direction=up scrollamount="1" style=" height: .78rem;">
 								<li v-for="(item,index) in list" :key="index" style="border: none;">
 									<!-- <p> {{item.name | ellipsis}}</p><p>{{item.phone | mobileFilter}}</p><p>{{item.time}}</p> -->
 									<p>{{item.desc}}</p>
 								</li>
-						   </marquee>
-						</ul>
-						
-					<div id="kf"   :class="{ activekf: isactivekf }">
-					   <a :href="url" style="color: transparent;display:block;width: .65rem;height: .65rem;">url</a>
-				     </div>
-				</div> 
-					 <!-- <a :href="'tel:' + tel">
-						 <div  :class="{ activepho: isactivepho,clearpos: isclearpos,pho:ispho  }">
-						 </div> 
-					</a> -->
-					<div v-if="isshow" :class="{con: iscon,cons:iscons  }" @click="lx">
-						<ul class="ul_">
-							<li :class="{div_p: isp,div_ps:isps  }">
-								<a :href="'tel:' + tel"  style="color:#AB977B;width: 100%;">
-									<p style="width: 100%;text-align: center;"></p>
-								</a>
-							</li>
+						</marquee>
+						</ul>	
+					</div> 
+					
+					<div id="kf"  :class="{ activekf: isactivekf }">
+						<a :href="url" style="color: transparent;">url</a>
+					</div>
+					<div v-if="isshow" :class="{ con: iscon,cons: iscons  }" @click="lx">
+						<ul>
 							<li  @click.stop="copy">
-							   <span>whatsapp：</span>	<span id="copybtn">{{qq}}</span><span>复制</span>
+							   <span>QQ：</span>	<span id="copybtn">{{qq}}</span><span>复制</span>
 							</li>
 							<li  @click.stop="copys">
-							   <span>telegram：</span>	<span id="copybtns">{{vx}}</span><span>复制</span>
+							   <span>VX：</span>	<span id="copybtns">{{vx}}</span><span>复制</span>
 							</li>
-							<li @click="isshow == false"  style="color: #ff5151;">取消</li>
+							<li @click="isshow == false" style="color: #ff5151;">取消</li>
 						</ul>
 						<div class="span_" style="font-size: .1rem;color: #fff;background-color: rgba(0,0,0,.8);width:30%;margin:auto;height: 35px;display: flex;justify-content: center; align-items: center;margin-top: 70%;border-radius: 8px;" v-if="show">已复制</div>
 					</div>
-					<div  :class="{clearpos: isclearpos,pho:ispho  }">
-						
-						<p @click="lx" style="font-size: .18rem;color:#fff; height: .5rem;background:#011D42;display: flex;
-						justify-content: center;
-						align-items: center;">联系方式</p>
+					<div  :class="{ activepho: isactivepho,clearpos: isclearpos,pho:ispho  }">
+						<a :href="'tel:' + tel"  style="color:#AB977B;">立即拨打电话</a>
+						<p @click="lx" style="border-top: .1px solid #ccc">联系方式</p>
 					</div>
-				</div>
-			 </div>
+				</div>	 
+			</div>
 		</div>
 	</body>
 	<script type="text/javascript">
 			 new Vue({
 			         el: '#app',
-			         data: function () {
+			         data () {
 			             return { 
 							show:false,
-							isshow:false,
-							iscon:false,
-							isp:false,
-							isps:false,
-							iscons:false,
+							 isshow:false,
 							 isActive:false,
+							 iscons:false,
+							 iscon:false,
 							 isActives:false,
 							 isactivepho:false,
 							 isactivekf:false,
 							 isclearpos:false,
 							 isactivepoll:false,
-							 ispho:false,
 							 isscroll:false,
+							 ispho:false,
 							 app_id:"adminApi",
 							 app_key : "adminApi20200915",	 
 							 list:[ ],
@@ -318,14 +267,16 @@
 							 url:'',
 							 time:"",
 							 token_:"",
-							 b_id:1,
-							 qq:'',
-							 vx:''
+							 b_id:2,
+							 qq:'1793876439532432',
+							 vx:'797980'
+							
 						 }
 			         },
 					 created() {
+						
+						
 					 },
-			          
 			             mounted() {
 			              	var ts = Math.round(new Date().getTime()/1000).toString();
 							this.time = ts;
@@ -342,7 +293,7 @@
 							 }).then(res =>{
 								 this.list = res.data.data.data.list;
 							 })
-							 axios.post("getKf1",{
+							 axios.post("getKf2",{
 										app_id: this.app_id,
 										app_time:ts,
 										app_key: this.app_key,
@@ -351,82 +302,82 @@
 								  this.tel = res.data.data.data.list.tel;
 								 this.url = res.data.data.data.list.kefu_url;
 							 });
-							 axios.post("getline",{          //联系方式弹出框
-										app_id: this.app_id,
-										app_time:ts,
-										app_key: this.app_key,
-										token:token_,
-										type:1
-							 }).then(res =>{
-								   this.qq = res.data.data.data.list.whatsapp;
-								  this.vx = res.data.data.data.list.telgram;
-							 });
-							 	this.wid()
+							//  axios.post("getKefu",{      //联系方式弹出框
+							// 			app_id: this.app_id,
+							// 			app_time:ts,
+							// 			app_key: this.app_key,
+							// 			token:token_,
+							//  }).then(res =>{
+							// 	 this.qq = res.data.data.data.list.qq;
+							// 	  this.vx = res.data.data.data.list.vx;
+							//  });
+							this.wid()
 			             },
 					 methods:{
-						lx(){
-							this.isshow =! this.isshow;
-						},
-						copy() {  
+						 lx(){
+							
+							 this.isshow =! this.isshow;
+						 },
+						 copy() {  
 							var val = document.getElementById('copybtn');
 							window.getSelection().selectAllChildren(val);
 							document.execCommand("Copy");
+							// vant.Toast("已复制");	
 							var a =2;
 							this.show = true;
 							 this.timer = setInterval(() =>{
-								//创建定时器
-							if( a <= 1){
-								clearInterval(this.timer)   //关闭定时器
-								this.show = false;
-							}
-							a--;
-						},1000);	
+							                 //创建定时器
+							                if( a <= 1){
+												clearInterval(this.timer)   //关闭定时器
+												this.show = false;
+							                }
+											a--;
+							            },1000);
 						 },
 						 copys() {  
 							var val = document.getElementById('copybtns');
 							window.getSelection().selectAllChildren(val);
 							document.execCommand("Copy");
+							// vant.Toast("已复制");
 							var a =2;
 							this.show = true;
 							 this.timer = setInterval(() =>{
-								//创建定时器
-							if( a <= 1){
-								clearInterval(this.timer)   //关闭定时器
-								this.show = false;
-							}
-							a--;
-						},1000);
+							                 //创建定时器
+							                if( a <= 1){
+												clearInterval(this.timer)   //关闭定时器
+												this.show = false;
+							                }
+											a--;
+							            },1000);
 						 },
-						wid(){
+						 wid(){
+							
 							 if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
-							  /* 手机 */
+							 /* 手机 */
 							   this.isActives = false
-							   this.isshow = false
 							   this.isActive = false
-							   this.isactivekf = false
+							    this.isactivekf = false
 							   this.isactivepho = false
 							   this.isclearpos = false
 							   this.isactivepoll = false
-							   this.isscroll = false
-							   this.ispho = true
-							   this.isps= true
-							   this.iscons = true
+							    this.isscroll = false
+								 this.ispho = true
+								 this.iscons = true
 							 }else{
 								 setTimeout(()=>{
-									 this.isActives = true
-									 this.isactivekf = true
-									 this.isActive = true
-									 this.isactivepho = true
-									 this.isclearpos = true
-									 this.isactivepoll = true
+								 	 this.isActives = true
+								 	 this.isactivekf = true
+								 	 this.isActive = true
+								 	 this.isactivepho = true
+								 	 this.isclearpos = true
+								 	 this.isactivepoll = true
 									 this.isscroll = true
-									 this.ispho = false
-									 this.iscon = true
-									 this.isp = true
+									  this.ispho = false
+									  this.iscon = true
 								  },100) 
 							
 							 }
-						}
+						 }
 						},
 						filters: {
 						      ellipsis (value) {
